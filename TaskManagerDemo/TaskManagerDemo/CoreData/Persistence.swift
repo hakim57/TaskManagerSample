@@ -8,11 +8,11 @@
 import CoreData
 
 struct PersistenceController {
-
+    
     let container: NSPersistentContainer
-
+    
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "TaskManagerSample")
+        container = NSPersistentContainer(name: "TaskManagerDemo")
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -34,6 +34,35 @@ struct PersistenceController {
             }
         }
     }
+    
+    // Preview context with sample data
+    static var preview: PersistenceController = {
+        let result = PersistenceController(inMemory: true)
+        let viewContext = result.container.viewContext
+        PreviewData.createPreviewTasks(in: viewContext)
+        return result
+    }()
 }
 
+
+struct PreviewData {
+    static func createPreviewTasks(in context: NSManagedObjectContext) {
+        let priorities = ["Low", "Medium", "High"]
+        let titles = ["Buy groceries", "Finish project", "Call mom", "Go for a run", "Read a book"]
+        
+        for i in 0..<10 {
+            let task = TaskItem(context: context)
+            task.id = UUID()
+            task.title = "\(titles[i % titles.count]) \(i + 1)"
+            task.priority = priorities[i % priorities.count]
+            task.dueDate = Calendar.current.date(byAdding: .day, value: i, to: Date()) ?? Date()
+            task.isCompleted = Bool.random()
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save preview tasks: \(error)")
+        }
+    }
+}
 

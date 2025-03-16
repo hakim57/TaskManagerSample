@@ -6,6 +6,6 @@
         <attribute name="isCompleted_" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="priority_" optional="YES" attributeType="String"/>
         <attribute name="taskDesc_" optional="YES" attributeType="String"/>
-        <attribute name="title_" optional="YES" attributeType="String"/>
+        <attribute name="title_" optional="YES" attributeType="String" defaultValueString=""/>
     </entity>
 </model>
