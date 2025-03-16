@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct TaskManagerDemoApp: App {
-    let persistenceController = PersistenceController.shared
+    let persistenceController = PersistenceController()
 
     var body: some Scene {
         WindowGroup {
