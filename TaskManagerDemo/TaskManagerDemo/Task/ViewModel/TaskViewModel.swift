@@ -13,6 +13,7 @@ class TaskViewModel: ObservableObject {
     @Published var tasks: [TaskItem] = []
     @Published var sortOption: SortOption = .byPriority
     @Published var filterOption: FilterOption = .all
+    @Published var accentColor: AccentColor = .blue  // Default accent color
     
     let context: NSManagedObjectContext
     

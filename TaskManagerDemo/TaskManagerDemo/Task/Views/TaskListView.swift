@@ -100,9 +100,11 @@ struct TaskListView: View {
             .environment(\.editMode, .constant(isEditing ? .active : .inactive))
             .sheet(isPresented: $showTaskCreation) {
                 //Add Task Creation view here
+                TaskCreationView(viewModel: viewModel)
             }
             .sheet(isPresented: $showSettings) {
                 //Add Setting view here
+                SettingsView(viewModel: viewModel)
             }
         }
     }
