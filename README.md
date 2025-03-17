@@ -7,8 +7,6 @@ Task Manager is a simple and intuitive app designed to help users keep track of 
 - [Setup Instructions](#setup-instructions)
 - [Features](#features)
 - [Design Rationale](#design-rationale)
-- [Screenshots](#screenshots)
-- [Testing](#testing)
 
 ## Setup Instructions
 
