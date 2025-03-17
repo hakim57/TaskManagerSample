@@ -46,6 +46,7 @@ struct TaskListView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     //Add ToolbarMenu here: Task Sorting and Filtering options
+                    ToolbarMenu(viewModel: viewModel)
                 }
                 
                 //Toolbar item with a pulse effect for Adding new task

@@ -43,6 +43,7 @@
 				Task/Views/TaskListContent.swift,
 				Task/Views/TaskListView.swift,
 				Task/Views/TaskRowView.swift,
+				Task/Views/ToolbarMenu.swift,
 			);
 			target = 43FA317A2D86E98B00F1B7A1 /* TaskManagerDemoTests */;
 		};
@@ -59,6 +60,7 @@
 				Task/Views/TaskListContent.swift,
 				Task/Views/TaskListView.swift,
 				Task/Views/TaskRowView.swift,
+				Task/Views/ToolbarMenu.swift,
 			);
 			target = 43FA31842D86E98B00F1B7A1 /* TaskManagerDemoUITests */;
 		};
