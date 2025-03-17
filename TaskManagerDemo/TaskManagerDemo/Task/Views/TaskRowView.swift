@@ -18,12 +18,6 @@ struct TaskRowView: View {
     var body: some View {
         NavigationLink(destination: TaskDetailView(task: task, viewModel: viewModel)) {
             TaskContentView(task: task)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 16)
-                .background(Color(.systemBackground)) // System color
-                .cornerRadius(8)
-                .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)
-                .padding(.vertical, 4)
         }
         .buttonStyle(PlainButtonStyle()) // Remove default button styling
         .swipeActions(edge: .trailing, allowsFullSwipe: true) {

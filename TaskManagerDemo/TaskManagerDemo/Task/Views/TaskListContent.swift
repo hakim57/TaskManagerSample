@@ -5,7 +5,6 @@
 //  Created by Hakim Bohra on 3/17/25.
 //
 
-
 import SwiftUI
 
 struct TaskListContent: View {
@@ -13,44 +12,46 @@ struct TaskListContent: View {
     @State private var lastDeletedTask: TaskItem? = nil
     @State private var lastCompletedTask: TaskItem? = nil
     @State private var showSnackbar = false
-
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             if viewModel.tasks.isEmpty {
                 EmptyStateView(tint: .blue)
             } else {
-                List {
-                    ForEach(viewModel.tasks, id: \.id) { task in
-                        TaskRowView(task: task, viewModel: viewModel, onTap: {
-                            // No action needed here since NavigationLink handles navigation
-                        }, onDelete: {
+                ScrollView {
+                    LazyVStack(spacing: 16){
+                        ForEach(viewModel.tasks, id: \.id) { task in
+                            TaskRowView(task: task, viewModel: viewModel, onTap: {
+                                // No action needed here since NavigationLink handles navigation
+                            }, onDelete: {
+                                withAnimation(.easeInOut) {
+                                    lastDeletedTask = task
+                                    viewModel.deleteTask(task)
+                                    showSnackbar = true
+                                }
+                            }, onComplete: {
+                                withAnimation(.easeInOut) {
+                                    lastCompletedTask = task
+                                    viewModel.toggleTaskCompletion(task)
+                                    showSnackbar = true
+                                }
+                            })
+                        }
+                        .onMove { source, destination in
                             withAnimation(.easeInOut) {
-                                lastDeletedTask = task
-                                viewModel.deleteTask(task)
-                                showSnackbar = true
+                                viewModel.moveTask(from: source, to: destination)
+                                // Trigger haptic feedback
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.impactOccurred()
                             }
-                        }, onComplete: {
-                            withAnimation(.easeInOut) {
-                                lastCompletedTask = task
-                                viewModel.toggleTaskCompletion(task)
-                                showSnackbar = true
-                            }
-                        })
-                    }
-                    .onMove { source, destination in
-                        withAnimation(.easeInOut) {
-                            viewModel.moveTask(from: source, to: destination)
-                            // Trigger haptic feedback
-                            let generator = UIImpactFeedbackGenerator(style: .medium)
-                            generator.impactOccurred()
                         }
                     }
+                    .padding(.horizontal)
                 }
-                .listStyle(PlainListStyle())
-                .background(Color(.systemGroupedBackground)) // System color
+                .background(LinearGradient(gradient: Gradient(colors: [.white, .blue.opacity(0.1)]), startPoint: .top, endPoint: .bottom))
                 .accessibilityLabel("Task list")
             }
-
+            
             if showSnackbar {
                 Snackbar(
                     message: lastDeletedTask != nil ? "Task deleted" : "Task marked as completed",

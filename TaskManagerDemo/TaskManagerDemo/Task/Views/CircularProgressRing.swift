@@ -9,25 +9,28 @@
 import SwiftUI
 
 struct CircularProgressRing: View {
-    var progress: Double // Progress value between 0 and 1
-    var lineWidth: CGFloat = 10
-    var color: Color
+    var progress: Double
+    var lineWidth: CGFloat = 15
+    var color: Color = .blue
 
     var body: some View {
         ZStack {
-            // Background ring
             Circle()
                 .stroke(lineWidth: lineWidth)
                 .opacity(0.3)
                 .foregroundColor(color)
-            // Progress ring
+
             Circle()
-                .trim(from: 0, to: CGFloat(progress))
+                .trim(from: 0.0, to: progress)
                 .stroke(style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
                 .foregroundColor(color)
-                .rotationEffect(.degrees(-90)) // Start from the top
-                .animation(.easeOut(duration: 0.5), value: progress)
+                .rotationEffect(Angle(degrees: -90))
+                .animation(.easeInOut, value: progress)
+
+            Text("\(Int(progress * 100))%")
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
         }
-        .padding(lineWidth / 2)
     }
 }

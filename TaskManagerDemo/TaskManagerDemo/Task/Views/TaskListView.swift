@@ -17,25 +17,29 @@ struct TaskListView: View {
     @State private var showTaskCreation = false
     @State private var isPulsing = false
     @State private var showSettings = false // Track settings view visibility
+    @State private var selectedTask: TaskItem?
     
     init(context: NSManagedObjectContext) {
         _viewModel = StateObject(wrappedValue: TaskViewModel(context: context))
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationSplitView {
             Group {
                 if isLoading {
                     //Add Shimmering Placeholder here
                     ShimmeringPlaceholder()
                 } else {
-                    VStack {
+                    VStack(spacing: 25) {
                         //1. Add Progress Ring
-                        CircularProgressRing(progress: viewModel.completionPercentage, lineWidth: 15, color: .blue)
-                            .frame(width: 100, height: 100)
-                            .padding(.top, 20)
-                            .accessibilityLabel("Task completion progress")
-                            .accessibilityHint("Shows the percentage of completed tasks")
+                        // Only show progress ring if there are tasks
+                        if !viewModel.tasks.isEmpty {
+                            CircularProgressRing(progress: viewModel.completionPercentage, lineWidth: 15, color: .blue)
+                                .frame(width: 100, height: 100)
+                                .padding(.top, 20)
+                                .accessibilityLabel("Task completion progress")
+                                .accessibilityHint("Shows the percentage of completed tasks")
+                        }
                         //2. Add Task List
                         TaskListContent(viewModel: viewModel)
                     }
@@ -105,6 +109,16 @@ struct TaskListView: View {
             .sheet(isPresented: $showSettings) {
                 //Add Setting view here
                 SettingsView(viewModel: viewModel)
+            }
+        } detail: {
+            // Detail view: Show details of the selected task or a placeholder
+            if let selectedTask = selectedTask {
+                TaskDetailView(task: selectedTask, viewModel: viewModel)
+                    .navigationTitle(selectedTask.title)
+            } else {
+                Text("Select a task to view details")
+                    .font(.largeTitle)
+                    .foregroundColor(.gray)
             }
         }
     }
