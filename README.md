@@ -40,6 +40,10 @@ Task Manager is a simple and intuitive app designed to help users keep track of 
 - Swipe Actions: Swipe to delete or mark tasks as complete.
 - Undo Actions: Undo Task Deletion or Task Completion.
 - Accessibility: Full support for VoiceOver and custom accessibility labels for enhanced user experience.
+- Support for light and dark mode.
+- Support to customise the accent color using Setting View.
+- Responsive layout optimized for iPhone and iPad.
+
 
 ## Design Rationale
 
