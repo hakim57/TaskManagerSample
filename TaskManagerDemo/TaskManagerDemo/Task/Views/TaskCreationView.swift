@@ -25,6 +25,7 @@ struct TaskCreationView: View {
                     TextField("Enter task title", text: $title)
                         .accessibilityLabel("Task title")
                         .accessibilityHint("Enter the title of the task")
+                        .accessibilityIdentifier("TaskTitle")
                 }
                 
                 // Description (optional)
@@ -32,6 +33,7 @@ struct TaskCreationView: View {
                     TextField("Enter task description (optional)", text: $description)
                         .accessibilityLabel("Task description")
                         .accessibilityHint("Enter an optional description for the task")
+                        .accessibilityIdentifier("TaskDescription")
                 }
                 
                 // Priority (Low, Medium, High)
@@ -43,6 +45,7 @@ struct TaskCreationView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .accessibilityLabel("Task priority")
+                    .accessibilityIdentifier("TaskPriority")
                     .accessibilityHint("Select the priority of the task")
                 }
                 
@@ -51,6 +54,7 @@ struct TaskCreationView: View {
                     DatePicker("Select due date", selection: $dueDate, displayedComponents: .date)
                         .datePickerStyle(GraphicalDatePickerStyle())
                         .accessibilityLabel("Task due date")
+                        .accessibilityIdentifier("TaskDueDate")
                         .accessibilityHint("Select the due date for the task")
                 }
             }
@@ -71,6 +75,7 @@ struct TaskCreationView: View {
                     }
                     .disabled(title.isEmpty)
                     .accessibilityLabel("Save task")
+                    .accessibilityIdentifier("SaveTask")
                     .accessibilityHint(title.isEmpty ? "Save button is disabled because the title is empty" : "Save the task and dismiss the screen")
                 }
             }

@@ -71,6 +71,7 @@ struct TaskListView: View {
                             .animation(.easeInOut(duration: 0.2), value: isPulsing)
                     }
                     .accessibilityLabel("Add new task")
+                    .accessibilityIdentifier("Add new task")
                     .accessibilityHint("Tap to create a new task")
                     .keyboardShortcut("n", modifiers: .command)
                 }

@@ -33,7 +33,17 @@
 		43FA31AB2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreData/Persistence.swift,
+				"CoreData/TaskItem+Extensions.swift",
+				CoreData/TaskManagerDemo.xcdatamodeld,
 				CoreData/TaskValueItem.swift,
+				MainApp/ContentView.swift,
+				MainApp/TaskManagerDemoApp.swift,
+				Task/Model/AccentColor.swift,
+				Task/Model/TaskFilterOption.swift,
+				Task/Model/TaskPriority.swift,
+				Task/Model/TaskSortOptions.swift,
+				Task/ViewModel/TaskViewModel.swift,
 				Task/Views/CircularProgressRing.swift,
 				Task/Views/EmptyStateView.swift,
 				Task/Views/SettingsView.swift,
@@ -53,7 +63,17 @@
 		43FA31AC2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreData/Persistence.swift,
+				"CoreData/TaskItem+Extensions.swift",
+				CoreData/TaskManagerDemo.xcdatamodeld,
 				CoreData/TaskValueItem.swift,
+				MainApp/ContentView.swift,
+				MainApp/TaskManagerDemoApp.swift,
+				Task/Model/AccentColor.swift,
+				Task/Model/TaskFilterOption.swift,
+				Task/Model/TaskPriority.swift,
+				Task/Model/TaskSortOptions.swift,
+				Task/ViewModel/TaskViewModel.swift,
 				Task/Views/CircularProgressRing.swift,
 				Task/Views/EmptyStateView.swift,
 				Task/Views/SettingsView.swift,
@@ -503,7 +523,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27UH89K7JT;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.TaskManagerDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,7 +542,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27UH89K7JT;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.TaskManagerDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27UH89K7JT;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.TaskManagerDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -557,6 +578,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 27UH89K7JT;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.TaskManagerDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
