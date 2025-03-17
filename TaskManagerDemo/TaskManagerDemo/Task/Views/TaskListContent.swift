@@ -18,36 +18,35 @@ struct TaskListContent: View {
             if viewModel.tasks.isEmpty {
                 EmptyStateView(tint: .blue)
             } else {
-                ScrollView {
-                    LazyVStack(spacing: 16){
-                        ForEach(viewModel.tasks, id: \.id) { task in
-                            TaskRowView(task: task, viewModel: viewModel, onTap: {
-                                // No action needed here since NavigationLink handles navigation
-                            }, onDelete: {
-                                withAnimation(.easeInOut) {
-                                    lastDeletedTask = task
-                                    viewModel.deleteTask(task)
-                                    showSnackbar = true
-                                }
-                            }, onComplete: {
-                                withAnimation(.easeInOut) {
-                                    lastCompletedTask = task
-                                    viewModel.toggleTaskCompletion(task)
-                                    showSnackbar = true
-                                }
-                            })
-                        }
-                        .onMove { source, destination in
+                List {
+                    ForEach(viewModel.tasks, id: \.id) { task in
+                        TaskRowView(task: task, viewModel: viewModel, onTap: {
+                            // No action needed here since NavigationLink handles navigation
+                        }, onDelete: {
                             withAnimation(.easeInOut) {
-                                viewModel.moveTask(from: source, to: destination)
-                                // Trigger haptic feedback
-                                let generator = UIImpactFeedbackGenerator(style: .medium)
-                                generator.impactOccurred()
+                                lastDeletedTask = task
+                                viewModel.deleteTask(task)
+                                showSnackbar = true
                             }
+                        }, onComplete: {
+                            withAnimation(.easeInOut) {
+                                lastCompletedTask = task
+                                viewModel.toggleTaskCompletion(task)
+                                showSnackbar = true
+                            }
+                        })
+                    }
+                    .onMove { source, destination in
+                        withAnimation(.easeInOut) {
+                            viewModel.moveTask(from: source, to: destination)
+                            // Trigger haptic feedback
+                            let generator = UIImpactFeedbackGenerator(style: .medium)
+                            generator.impactOccurred()
                         }
                     }
-                    .padding(.horizontal)
+                    .listRowSeparator(.hidden)
                 }
+                .listStyle(.plain)
                 .background(LinearGradient(gradient: Gradient(colors: [.white, .blue.opacity(0.1)]), startPoint: .top, endPoint: .bottom))
                 .accessibilityLabel("Task list")
             }

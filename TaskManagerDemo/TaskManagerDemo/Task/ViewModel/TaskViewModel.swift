@@ -40,9 +40,9 @@ class TaskViewModel: ObservableObject {
         case .all:
             break
         case .completed:
-            request.predicate = NSPredicate(format: "isCompleted == true")
+            request.predicate = NSPredicate(format: "isCompleted_ == true")
         case .pending:
-            request.predicate = NSPredicate(format: "isCompleted == false")
+            request.predicate = NSPredicate(format: "isCompleted_ == false")
         }
         
         do {
