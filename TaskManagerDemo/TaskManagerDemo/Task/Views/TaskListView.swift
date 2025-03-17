@@ -34,7 +34,7 @@ struct TaskListView: View {
                         //1. Add Progress Ring
                         // Only show progress ring if there are tasks
                         if !viewModel.tasks.isEmpty {
-                            CircularProgressRing(progress: viewModel.completionPercentage, lineWidth: 15, color: .blue)
+                            CircularProgressRing(progress: viewModel.completionPercentage, lineWidth: 15, color: viewModel.accentColor.color)
                                 .frame(width: 100, height: 100)
                                 .padding(.top, 20)
                                 .accessibilityLabel("Task completion progress")
@@ -96,6 +96,7 @@ struct TaskListView: View {
                     .accessibilityHint("Tap to toggle edit mode")
                 }
             }
+            .tint(viewModel.accentColor.color)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isLoading = false

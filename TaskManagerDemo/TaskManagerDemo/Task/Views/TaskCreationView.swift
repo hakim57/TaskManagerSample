@@ -74,6 +74,7 @@ struct TaskCreationView: View {
                     .accessibilityHint(title.isEmpty ? "Save button is disabled because the title is empty" : "Save the task and dismiss the screen")
                 }
             }
+            .tint(viewModel.accentColor.color) // Apply accent color
         }
     }
     

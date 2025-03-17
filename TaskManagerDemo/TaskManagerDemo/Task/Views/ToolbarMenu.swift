@@ -24,13 +24,14 @@ struct ToolbarMenu: View {
                             .font(.body)
                         if viewModel.sortOption == option {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.blue)
+                                .foregroundColor(viewModel.accentColor.color)
                         }
                     }
                     .accessibilityLabel("Sort by \(option.rawValue)")
                     .accessibilityHint(viewModel.sortOption == option ? "Selected" : "Not selected")
                 }
             }
+            .tint(viewModel.accentColor.color)
 
             // Filtering Options
             Section("Filter By") {
