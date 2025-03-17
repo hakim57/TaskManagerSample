@@ -75,7 +75,7 @@ class TaskViewModel: ObservableObject {
         saveContext()
     }
     
-    func undoDelete(_ task: TaskItem) {
+    func undoDelete(_ task: TaskValueItem) {
         addTask(title: task.title, description: task.taskDesc, priority: task.priority, dueDate: task.dueDate)
         saveContext()
     }
@@ -94,6 +94,5 @@ class TaskViewModel: ObservableObject {
         newTask.priority = priority
         newTask.dueDate = dueDate
         newTask.isCompleted = false
-        saveContext()
     }
 }

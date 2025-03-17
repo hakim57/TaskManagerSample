@@ -33,6 +33,7 @@
 		43FA31AB2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreData/TaskValueItem.swift,
 				Task/Views/CircularProgressRing.swift,
 				Task/Views/EmptyStateView.swift,
 				Task/Views/SettingsView.swift,
@@ -52,6 +53,7 @@
 		43FA31AC2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CoreData/TaskValueItem.swift,
 				Task/Views/CircularProgressRing.swift,
 				Task/Views/EmptyStateView.swift,
 				Task/Views/SettingsView.swift,

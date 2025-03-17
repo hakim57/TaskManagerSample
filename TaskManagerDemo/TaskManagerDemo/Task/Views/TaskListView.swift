@@ -46,7 +46,7 @@ struct TaskListView: View {
                 }
             }
             .navigationTitle("Tasks")
-            .background(Color(.systemGroupedBackground)) // System color for background
+            .background(Color(.clear))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     //Add ToolbarMenu here: Task Sorting and Filtering options

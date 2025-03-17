@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TaskListContent: View {
     @ObservedObject var viewModel: TaskViewModel
-    @State private var lastDeletedTask: TaskItem? = nil
+    @State private var lastDeletedTask: TaskValueItem? = nil
     @State private var lastCompletedTask: TaskItem? = nil
     @State private var showSnackbar = false
     
@@ -24,7 +24,7 @@ struct TaskListContent: View {
                             // No action needed here since NavigationLink handles navigation
                         }, onDelete: {
                             withAnimation(.easeInOut) {
-                                lastDeletedTask = task
+                                lastDeletedTask = TaskValueItem(id: task.id!, title: task.title, taskDesc: task.taskDesc, dueDate: task.dueDate, isCompleted: task.isCompleted, priority: task.priority)
                                 viewModel.deleteTask(task)
                                 showSnackbar = true
                             }
