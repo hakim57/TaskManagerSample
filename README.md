@@ -74,4 +74,4 @@ Core Data is used to store tasks locally on the device. This allows the app to f
 ---
 
 ### Conclusion:
-This README provides the essential setup instructions, design rationale, and a guide for running tests. The app is built using modern architecture and design practices, with a strong focus on accessibility and user experience.
+This README provides the essential setup instructions, design rationale. The app is built using modern architecture and design practices, with a strong focus on accessibility and user experience.
