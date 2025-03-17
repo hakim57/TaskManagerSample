@@ -31,7 +31,13 @@ struct TaskListView: View {
                 } else {
                     VStack {
                         //1. Add Progress Ring
+                        CircularProgressRing(progress: viewModel.completionPercentage, lineWidth: 15, color: .blue)
+                            .frame(width: 100, height: 100)
+                            .padding(.top, 20)
+                            .accessibilityLabel("Task completion progress")
+                            .accessibilityHint("Shows the percentage of completed tasks")
                         //2. Add Task List
+                        TaskListContent(viewModel: viewModel)
                     }
                 }
             }

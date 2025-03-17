@@ -33,18 +33,32 @@
 		43FA31AB2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Task/Views/CircularProgressRing.swift,
+				Task/Views/EmptyStateView.swift,
 				Task/Views/ShimmeringPlaceholder.swift,
 				Task/Views/ShimmerRowView.swift,
+				Task/Views/Snackbar.swift,
+				Task/Views/TaskContentView.swift,
+				Task/Views/TaskDetailView.swift,
+				Task/Views/TaskListContent.swift,
 				Task/Views/TaskListView.swift,
+				Task/Views/TaskRowView.swift,
 			);
 			target = 43FA317A2D86E98B00F1B7A1 /* TaskManagerDemoTests */;
 		};
 		43FA31AC2D86F2E900F1B7A1 /* Exceptions for "TaskManagerDemo" folder in "TaskManagerDemoUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Task/Views/CircularProgressRing.swift,
+				Task/Views/EmptyStateView.swift,
 				Task/Views/ShimmeringPlaceholder.swift,
 				Task/Views/ShimmerRowView.swift,
+				Task/Views/Snackbar.swift,
+				Task/Views/TaskContentView.swift,
+				Task/Views/TaskDetailView.swift,
+				Task/Views/TaskListContent.swift,
 				Task/Views/TaskListView.swift,
+				Task/Views/TaskRowView.swift,
 			);
 			target = 43FA31842D86E98B00F1B7A1 /* TaskManagerDemoUITests */;
 		};
