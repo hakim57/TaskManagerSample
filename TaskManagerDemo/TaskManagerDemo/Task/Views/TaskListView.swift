@@ -27,6 +27,7 @@ struct TaskListView: View {
             Group {
                 if isLoading {
                     //Add Shimmering Placeholder here
+                    ShimmeringPlaceholder()
                 } else {
                     VStack {
                         //1. Add Progress Ring
